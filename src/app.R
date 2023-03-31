@@ -2,8 +2,19 @@ library(shiny)
 library(leaflet)
 
 ui <- fillPage(
+  tags$head(
+    tags$link(rel = "stylesheet", type = "text/css", href = "style.css")
+  ),
   # UI code here
-  leafletOutput("mapa", width = "100%", height = "100%")
+  leafletOutput("mapa", width = "100%", height = "100%"),
+  absolutePanel(
+    id = "title",
+    top = 10,
+    left = "5%",
+    right = "5%",
+    border = "none",
+    h1("Museo de la Infamia")
+  )
 )
 
 server <- function(input, output, session) {
